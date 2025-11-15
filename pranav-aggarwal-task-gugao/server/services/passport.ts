@@ -18,7 +18,6 @@
 // ))
 // export default passport;
 
-
 import passport from "passport";
 import { Strategy as JwtStrategy, ExtractJwt } from "passport-jwt";
 import dotenv from "dotenv";
@@ -26,7 +25,11 @@ import { JwtPayload } from "jsonwebtoken";
 
 dotenv.config();
 
-const secretKey = process.env.JWT_KEY || "localdevsecret";
+const secretKey = process.env.JWT_KEY;
+
+if (!secretKey) {
+    throw new Error("JWT_KEY environment variable is missing!");
+}
 
 passport.use(
     new JwtStrategy(
