@@ -18,7 +18,7 @@ app.use(express.json())
 app.use(morgan("dev"))
 app.use(express.urlencoded({ extended: true }))
 const allowedOrigins = [
-    "http://localhost:5173",
+    "http://localhost:5173", "https://fi-task.vercel.app", ,
 ];
 app.use(cors({
     origin: (origin, callback) => {
