@@ -107,7 +107,13 @@ const Dashboard = () => {
                 image: productForm.image,
             };
             if (editingProduct) {
-                await updateProduct({ id: editingProduct._id, ...productData }).unwrap();
+                /// await updateProduct({ id: editingProduct._id, ...productData }).unwrap();
+                await updateProduct({
+                    id: editingProduct._id,
+                    body: productData
+                }).unwrap();
+
+
                 toast.success("Product updated successfully!");
             } else {
                 await createProduct(productData).unwrap();
@@ -139,7 +145,7 @@ const Dashboard = () => {
     };
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-50 via-teal-50 to-cyan-50">
-            {}
+            { }
             <header className="bg-white/80 backdrop-blur-sm shadow-lg border-b border-gray-200/50 sticky top-0 z-10">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
                     <div className="flex items-center justify-between">
@@ -176,9 +182,9 @@ const Dashboard = () => {
                     </div>
                 </div>
             </header>
-            {}
+            { }
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                {}
+                { }
                 <div className="relative bg-gradient-to-br from-[#008080] via-[#00A8A8] to-[#20B2AA] rounded-3xl p-8 mb-8 overflow-hidden shadow-2xl">
                     <div className="absolute inset-0 bg-black/10"></div>
                     <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32"></div>
@@ -192,9 +198,9 @@ const Dashboard = () => {
                         </p>
                     </div>
                 </div>
-                {}
+                { }
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                    {}
+                    { }
                     <div className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
                         <div className="absolute inset-0 bg-gradient-to-br from-[#008080] to-[#00A8A8] opacity-0 group-hover:opacity-10 transition-opacity"></div>
                         <div className="relative p-6">
@@ -219,7 +225,7 @@ const Dashboard = () => {
                             </div>
                         </div>
                     </div>
-                    {}
+                    { }
                     <div className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
                         <div className="absolute inset-0 bg-gradient-to-br from-[#008080] to-[#00A8A8] opacity-0 group-hover:opacity-10 transition-opacity"></div>
                         <div className="relative p-6">
@@ -244,7 +250,7 @@ const Dashboard = () => {
                             </div>
                         </div>
                     </div>
-                    {}
+                    { }
                     <div className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
                         <div className="absolute inset-0 bg-gradient-to-br from-green-500 to-emerald-500 opacity-0 group-hover:opacity-10 transition-opacity"></div>
                         <div className="relative p-6">
@@ -269,7 +275,7 @@ const Dashboard = () => {
                             </div>
                         </div>
                     </div>
-                    {}
+                    { }
                     <div className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
                         <div className="absolute inset-0 bg-gradient-to-br from-orange-500 to-amber-500 opacity-0 group-hover:opacity-10 transition-opacity"></div>
                         <div className="relative p-6">
@@ -295,9 +301,9 @@ const Dashboard = () => {
                         </div>
                     </div>
                 </div>
-                {}
+                { }
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-                    {}
+                    { }
                     <div className="bg-white rounded-2xl shadow-lg p-6">
                         <div className="flex items-center justify-between mb-6">
                             <h3 className="text-xl font-bold text-gray-800">Sales Analytics</h3>
@@ -332,7 +338,7 @@ const Dashboard = () => {
                             ))}
                         </div>
                     </div>
-                    {}
+                    { }
                     <div className="bg-white rounded-2xl shadow-lg p-6">
                         <h3 className="text-xl font-bold text-gray-800 mb-6">Top Selling Products</h3>
                         <div className="space-y-4">
@@ -358,7 +364,7 @@ const Dashboard = () => {
                         </div>
                     </div>
                 </div>
-                {}
+                { }
                 <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
                     <h2 className="text-xl font-bold text-gray-800 mb-6">Quick Actions</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -401,7 +407,7 @@ const Dashboard = () => {
                         </button>
                     </div>
                 </div>
-                {}
+                { }
                 <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
                     <div className="flex items-center justify-between mb-6">
                         <h3 className="text-2xl font-bold bg-gradient-to-r from-[#008080] to-[#00A8A8] bg-clip-text text-transparent">
@@ -459,13 +465,12 @@ const Dashboard = () => {
                                                 <select
                                                     value={contact.status}
                                                     onChange={(e) => handleStatusUpdate(contact._id, e.target.value)}
-                                                    className={`px-3 py-1 rounded-full text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-[#008080] ${
-                                                        contact.status === "pending"
+                                                    className={`px-3 py-1 rounded-full text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-[#008080] ${contact.status === "pending"
                                                             ? "bg-yellow-100 text-yellow-800"
                                                             : contact.status === "reviewed"
-                                                            ? "bg-blue-100 text-blue-800"
-                                                            : "bg-green-100 text-green-800"
-                                                    }`}
+                                                                ? "bg-blue-100 text-blue-800"
+                                                                : "bg-green-100 text-green-800"
+                                                        }`}
                                                 >
                                                     <option value="pending">Pending</option>
                                                     <option value="reviewed">Reviewed</option>
@@ -500,7 +505,7 @@ const Dashboard = () => {
                         </div>
                     )}
                 </div>
-                {}
+                { }
                 <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
                     <div className="flex items-center justify-between mb-6">
                         <h3 className="text-2xl font-bold bg-gradient-to-r from-[#008080] to-[#00A8A8] bg-clip-text text-transparent">
@@ -516,7 +521,7 @@ const Dashboard = () => {
                             Add Product
                         </button>
                     </div>
-                    {}
+                    { }
                     {showAddProduct && (
                         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
                             <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
@@ -631,7 +636,7 @@ const Dashboard = () => {
                             </div>
                         </div>
                     )}
-                    {}
+                    { }
                     {products.length === 0 ? (
                         <div className="text-center py-12">
                             <svg className="w-16 h-16 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -709,7 +714,7 @@ const Dashboard = () => {
                         </p>
                     </div>
                 </div>
-                {}
+                { }
                 <div className="bg-gradient-to-br from-white to-teal-50 rounded-2xl shadow-lg p-6 border-2 border-teal-100">
                     <h2 className="text-xl font-bold text-gray-800 mb-6">Account Information</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useGetProductBySlugQuery } from "../redux/apis/product.api";
-import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
+
 import { Button } from "../components/ui/button";
 import { Badge } from "../components/ui/badge";
 import { toast } from "sonner";
@@ -13,7 +13,8 @@ import {
     DialogHeader,
     DialogTitle,
 } from "../components/ui/dialog";
-import { ArrowLeft, Check, Truck, ChevronDown, Store } from "lucide-react";
+import { ArrowLeft, Truck, ChevronDown, } from "lucide-react";
+import { Card } from "../components/ui/card";
 const ProductDetail = () => {
     const { slug } = useParams<{ slug: string }>();
     const { data, isLoading, error } = useGetProductBySlugQuery(slug || "");
@@ -23,7 +24,7 @@ const ProductDetail = () => {
     const [selectedImage, setSelectedImage] = useState<number>(0);
     const [selectedColor, setSelectedColor] = useState<string>("Cosmic Orange");
     const [selectedVariant, setSelectedVariant] = useState<string>("");
-    // Keyboard navigation for image gallery
+
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
             if (e.key === "ArrowLeft") {
@@ -97,9 +98,11 @@ const ProductDetail = () => {
         }
         return 0;
     };
+    console.log(calculateDiscount);
+
     const productImages = [
         {
-            url: product.image, 
+            url: product.image,
             label: "Front View",
             alt: `${product.name} - Front view`
         },
@@ -137,10 +140,10 @@ const ProductDetail = () => {
                     Back to Products
                 </Link>
                 <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-6 sm:gap-8 lg:gap-8">
-                    {}
+                    { }
                     <div className="order-2 lg:order-1">
                         <div className="flex gap-2">
-                            {}
+                            { }
                             <div className="flex flex-col gap-2">
                                 {productImages.map((img, index) => (
                                     <button
@@ -161,16 +164,16 @@ const ProductDetail = () => {
                                             className={`w-full h-full object-contain p-1 bg-white transition-transform duration-200
                                                 ${selectedImage === index ? "" : "group-hover:scale-110"}`}
                                         />
-                                        {}
+                                        { }
                                         {selectedImage === index && (
                                             <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#0A5C5C]"></div>
                                         )}
                                     </button>
                                 ))}
                             </div>
-                            {}
+                            { }
                             <div className="flex-1 bg-white border border-gray-200 rounded-lg p-8 relative overflow-hidden">
-                                {}
+                                { }
                                 <div className="relative min-h-[400px] flex items-center justify-center">
                                     {productImages.map((img, index) => (
                                         <img
@@ -187,7 +190,7 @@ const ProductDetail = () => {
                                 </div>
                             </div>
                         </div>
-                        {}
+                        { }
                         <div className="mt-6 grid grid-cols-2 gap-4">
                             <div>
                                 <label className="block text-xs font-medium text-gray-700 mb-2">Color</label>
@@ -222,10 +225,10 @@ const ProductDetail = () => {
                             </div>
                         </div>
                     </div>
-                    {}
+                    { }
                     <div className="order-1 lg:order-2">
                         <div className="bg-[#E8F5F5] rounded-2xl p-8 space-y-6">
-                            {}
+                            { }
                             <div>
                                 <h1 className="text-2xl font-bold text-gray-900 mb-2">
                                     {product.name}
@@ -237,7 +240,7 @@ const ProductDetail = () => {
                                     ₹{product.price.toLocaleString("en-IN")}
                                 </div>
                             </div>
-                            {}
+                            { }
                             <div className="bg-white rounded-lg p-5 space-y-4">
                                 <h3 className="font-semibold text-gray-900 text-base">Choose a Downpayment</h3>
                                 <div className="grid grid-cols-2 gap-3">
@@ -261,7 +264,7 @@ const ProductDetail = () => {
                                     </button>
                                 </div>
                             </div>
-                            {}
+                            { }
                             <div className="bg-white rounded-lg p-5 space-y-4">
                                 <h3 className="font-semibold text-gray-900 text-base">Choose EMI Tenure</h3>
                                 {emiPlans.length === 0 ? (
@@ -318,7 +321,7 @@ const ProductDetail = () => {
                                     </p>
                                 )}
                             </div>
-                            {}
+                            { }
                             <button
                                 onClick={handleProceed}
                                 disabled={!selectedPlan}
@@ -333,11 +336,11 @@ const ProductDetail = () => {
                             <p className="text-xs text-[#6B7280] text-center -mt-2">
                                 *Total extra payment per month/order value
                             </p>
-                            {}
+                            { }
                             <div className="text-sm text-[#6B7280]">
                                 Sold by :<span className="text-gray-700">Balaji Infocom</span>
                             </div>
-                            {}
+                            { }
                             <div className="bg-white rounded-lg p-5">
                                 <div className="flex items-start gap-3">
                                     <Truck className="w-5 h-5 text-[#0A5C5C] mt-0.5 flex-shrink-0" />
@@ -354,7 +357,7 @@ const ProductDetail = () => {
                                     </div>
                                 </div>
                             </div>
-                            {}
+                            { }
                             <div className="bg-white rounded-lg p-5">
                                 <h3 className="font-semibold text-gray-900 mb-3 text-base">Product Details</h3>
                                 <ul className="space-y-2 text-sm text-gray-700">
@@ -372,7 +375,7 @@ const ProductDetail = () => {
                     </div>
                 </div>
             </div>
-            {}
+            { }
             <Dialog open={showModal} onOpenChange={setShowModal}>
                 <DialogContent className="sm:max-w-md">
                     <DialogHeader>

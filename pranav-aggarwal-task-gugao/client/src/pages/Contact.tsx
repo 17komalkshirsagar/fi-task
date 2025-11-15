@@ -12,7 +12,7 @@ const Contact = () => {
         subject: "",
         message: "",
     });
-    const [submitContactForm, { isLoading, isSuccess, isError, error }] = useSubmitContactFormMutation();
+    const [submitContactForm, { isLoading, }] = useSubmitContactFormMutation();
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
@@ -21,7 +21,7 @@ const Contact = () => {
         try {
             const result = await submitContactForm(formData).unwrap();
             toast.success(result.message || "Message sent successfully!");
-            // Reset form on success
+
             setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
         } catch (err: any) {
             console.error("Failed to submit contact form:", err);
@@ -31,11 +31,11 @@ const Contact = () => {
     return (
         <div className="min-h-screen flex flex-col">
             <Header />
-            {}
+            { }
             <section className="py-20 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                        {}
+                        { }
                         <div>
                             <h2 className="text-4xl font-bold mb-8">
                                 <span className="bg-gradient-to-r from-[#008080] to-[#00A8A8] bg-clip-text text-transparent">
@@ -108,7 +108,7 @@ const Contact = () => {
                                 </div>
                             </div>
                         </div>
-                        {}
+                        { }
                         <div className="bg-white rounded-2xl shadow-xl p-8">
                             <h2 className="text-3xl font-bold mb-6">
                                 <span className="bg-gradient-to-r from-[#008080] to-[#00A8A8] bg-clip-text text-transparent">

@@ -10,6 +10,7 @@ export interface IUser extends Document {
     role: 'user';
     status: 'active' | 'inactive';
     sessionToken: string | null;
+    token?: string;
 }
 const userSchema = new Schema<IUser>({
     firstName: { type: String, required: true, trim: true },
@@ -28,4 +29,4 @@ const userSchema = new Schema<IUser>({
     status: { type: String, default: "active", enum: ['active', 'inactive'] },
     sessionToken: { type: String, default: null },
 }, { timestamps: true });
-export const User = mongoose.model<IUser>("User", userSchema);
+export const User = mongoose.model<IUser>("User", userSchema);

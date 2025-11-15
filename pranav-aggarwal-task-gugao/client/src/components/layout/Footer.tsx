@@ -5,6 +5,9 @@ interface FooterProps {
 }
 const Footer = ({ colorScheme = "dark" }: FooterProps) => {
     const currentYear = new Date().getFullYear();
+    console.log("currentYear::", currentYear)
+
+
     const colorSchemes = {
         dark: {
             bg: "bg-white",
@@ -37,30 +40,30 @@ const Footer = ({ colorScheme = "dark" }: FooterProps) => {
     const colors = colorSchemes[colorScheme];
     return (
         <footer className={`${colors.bg} shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] min-h-[400px]`}>
-            {}
+            { }
             <div className="max-w-[1440px] mx-auto px-10 py-[60px]">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-                    {}
+                    { }
                     <div className="space-y-5">
-                        {}
+                        { }
                         <Link to="/" className="inline-block">
                             <span className="text-[32px] font-bold tracking-tight">
                                 <span className={`font-semibold ${colors.heading}`}>snap</span>
                                 <span className="text-[#008080]">mint</span>
                             </span>
                         </Link>
-                        {}
+                        { }
                         <h3 className={`text-base font-semibold ${colors.heading}`}>
                             Snapmint Credit Advisory Private Limited
                         </h3>
-                        {}
+                        { }
                         <address className={`text-sm leading-relaxed not-italic ${colors.text}`}>
                             Office No. 401, 4th Floor,<br />
                             Parinee Crescenzo, G Block BKC,<br />
                             Bandra East, Mumbai - 400051,<br />
                             Maharashtra, India
                         </address>
-                        {}
+                        { }
                         <div className="space-y-2">
                             <p className={`text-sm font-medium ${colors.text}`}>
                                 <span className={colors.heading}>Contact:</span> +91 1800-123-4567
@@ -70,7 +73,7 @@ const Footer = ({ colorScheme = "dark" }: FooterProps) => {
                             </p>
                         </div>
                     </div>
-                    {}
+                    { }
                     <div>
                         <h3 className={`text-lg font-semibold mb-5 ${colors.heading}`}>Quick Links</h3>
                         <ul className="space-y-3">
@@ -124,7 +127,8 @@ const Footer = ({ colorScheme = "dark" }: FooterProps) => {
                             </li>
                         </ul>
                     </div>
-                    {/* Column 3 - Support Links */}
+
+
                     <div>
                         <h3 className={`text-lg font-semibold mb-5 ${colors.heading}`}>Support Links</h3>
                         <ul className="space-y-3">
@@ -178,13 +182,13 @@ const Footer = ({ colorScheme = "dark" }: FooterProps) => {
                             </li>
                         </ul>
                     </div>
-                    {/* Column 4 - Download App */}
+
                     <div>
                         <h3 className={`text-lg font-semibold mb-5 ${colors.heading}`}>
                             Download Snapmint Today
                         </h3>
                         <div className="space-y-3">
-                            {}
+                            { }
                             <a
                                 href="https://play.google.com"
                                 target="_blank"
@@ -203,7 +207,7 @@ const Footer = ({ colorScheme = "dark" }: FooterProps) => {
                                     </div>
                                 </div>
                             </a>
-                            {}
+                            { }
                             <a
                                 href="https://apps.apple.com"
                                 target="_blank"
@@ -231,7 +235,7 @@ const Footer = ({ colorScheme = "dark" }: FooterProps) => {
             <div className={`border-t ${colors.border}`}>
                 <div className="max-w-[1440px] mx-auto px-10 py-8">
                     <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-center">
-                        {}
+                        { }
                         <div className="flex items-center gap-4">
                             <a
                                 href="https://facebook.com"
@@ -266,7 +270,7 @@ const Footer = ({ colorScheme = "dark" }: FooterProps) => {
                                 <Youtube size={18} />
                             </a>
                         </div>
-                        {}
+                        { }
                         <div className="flex items-center gap-2">
                             <span className={`text-[13px] ${colors.text}`}>Proudly made in</span>
                             <svg className="w-5 h-5" viewBox="0 0 36 27" fill="none">

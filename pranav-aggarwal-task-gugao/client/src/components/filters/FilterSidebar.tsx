@@ -1,4 +1,4 @@
-import { Search, X } from "lucide-react";
+import { Search, } from "lucide-react";
 import { useState } from "react";
 interface FilterSidebarProps {
     filters: {
@@ -41,7 +41,7 @@ const FilterSidebar = ({ filters, onFilterChange, onClearAll }: FilterSidebarPro
     };
     return (
         <div className="w-full lg:w-[300px] bg-white border border-[#E5E7EB] rounded-xl p-6 sticky top-6">
-            {}
+            { }
             <div className="flex justify-between items-center mb-6">
                 <h2 className="text-lg font-bold text-[#1A1A1A]">Filters</h2>
                 <button
@@ -51,7 +51,7 @@ const FilterSidebar = ({ filters, onFilterChange, onClearAll }: FilterSidebarPro
                     Clear all
                 </button>
             </div>
-            {}
+            { }
             <div className="mb-6 pb-6 border-b border-[#E5E7EB]">
                 <h3 className="text-base font-bold text-[#1A1A1A] mb-4">
                     Downpayment (Pay Now)
@@ -74,7 +74,7 @@ const FilterSidebar = ({ filters, onFilterChange, onClearAll }: FilterSidebarPro
                     ))}
                 </div>
             </div>
-            {}
+            { }
             <div className="mb-6 pb-6 border-b border-[#E5E7EB]">
                 <h3 className="text-base font-bold text-[#1A1A1A] mb-4">EMI Tenure</h3>
                 <div className="space-y-3">
@@ -93,7 +93,7 @@ const FilterSidebar = ({ filters, onFilterChange, onClearAll }: FilterSidebarPro
                     </label>
                 </div>
             </div>
-            {}
+            { }
             <div className="mb-6 pb-6 border-b border-[#E5E7EB]">
                 <h3 className="text-base font-bold text-[#1A1A1A] mb-4">Price</h3>
                 <div className="space-y-3 mb-4">
@@ -119,7 +119,7 @@ const FilterSidebar = ({ filters, onFilterChange, onClearAll }: FilterSidebarPro
                         </label>
                     ))}
                 </div>
-                {}
+                { }
                 <div className="flex items-center gap-2">
                     <div className="flex-1">
                         <label className="block text-xs text-[#6B7280] mb-1">Min</label>
@@ -153,7 +153,7 @@ const FilterSidebar = ({ filters, onFilterChange, onClearAll }: FilterSidebarPro
                     </button>
                 </div>
             </div>
-            {}
+            { }
             <div className="mb-6 pb-6 border-b border-[#E5E7EB]">
                 <h3 className="text-base font-bold text-[#1A1A1A] mb-4">Categories</h3>
                 <div className="space-y-3">
@@ -174,7 +174,7 @@ const FilterSidebar = ({ filters, onFilterChange, onClearAll }: FilterSidebarPro
                     )}
                 </div>
             </div>
-            {}
+            { }
             <div className="mb-0">
                 <div className="flex justify-between items-center mb-4">
                     <h3 className="text-base font-bold text-[#1A1A1A]">Brand</h3>
