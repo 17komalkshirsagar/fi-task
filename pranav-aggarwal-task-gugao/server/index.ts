@@ -50,9 +50,17 @@ mongoose.connect(process.env.MONGO_URL || "").catch((err) => {
     process.exit(1);
 });
 const PORT = process.env.PORT || 5000
-mongoose.connection.once("open", async () => {
-    console.log("MongoDb Connected")
-    server.listen(PORT, () => {
-        console.log(`Server is running on ${PORT}`)
-    });
-});
+// mongoose.connection.once("open", async () => {
+
+//     console.log("MongoDb Connected")
+//     server.listen(PORT, () => {
+//         console.log(`Server is running on ${PORT}`)
+//     });
+// });
+
+
+mongoose.connect(process.env.MONGO_URL || "")
+    .then(() => console.log("MongoDB connected"))
+    .catch(err => console.error("MongoDB connection error:", err));
+
+export default app;
