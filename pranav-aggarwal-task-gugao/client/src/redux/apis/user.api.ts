@@ -12,22 +12,16 @@ export interface IUser {
     status: 'active' | 'inactive';
     token: string;
 }
-interface AuthState {
-    user: IUser | null;
-    isLoggedIn: boolean;
-}
 
-const initialState: AuthState = {
-    user: null,
-    isLoggedIn: false,
-};
 
 const baseQuery = fetchBaseQuery({
     baseUrl: `${import.meta.env.VITE_BACKEND_URL}/api/v1/user`,
     credentials: "include",
     prepareHeaders(headers, { getState }) {
         const state = getState() as RootState;
-        const token = state.auth.user?.token ?? "";
+        // const token = state.auth.user?.token ?? "";
+        const token = (state.auth.user as IUser | null)?.token ?? "";
+
         if (token) {
             headers.set("Authorization", `Bearer ${token}`);
         }

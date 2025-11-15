@@ -34,6 +34,8 @@ const Dashboard = () => {
     const totalProducts = products.length;
     const totalRevenue = products.reduce((sum, p) => sum + p.price, 0);
     const avgPrice = totalProducts > 0 ? Math.round(totalRevenue / totalProducts) : 0;
+    console.log(avgPrice);
+
     const handleStatusUpdate = async (id: string, status: string) => {
         try {
             await updateContactStatus({ id, status }).unwrap();
@@ -466,10 +468,10 @@ const Dashboard = () => {
                                                     value={contact.status}
                                                     onChange={(e) => handleStatusUpdate(contact._id, e.target.value)}
                                                     className={`px-3 py-1 rounded-full text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-[#008080] ${contact.status === "pending"
-                                                            ? "bg-yellow-100 text-yellow-800"
-                                                            : contact.status === "reviewed"
-                                                                ? "bg-blue-100 text-blue-800"
-                                                                : "bg-green-100 text-green-800"
+                                                        ? "bg-yellow-100 text-yellow-800"
+                                                        : contact.status === "reviewed"
+                                                            ? "bg-blue-100 text-blue-800"
+                                                            : "bg-green-100 text-green-800"
                                                         }`}
                                                 >
                                                     <option value="pending">Pending</option>
